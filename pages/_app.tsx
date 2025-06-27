@@ -3,7 +3,6 @@ import "@app/styles/fonts.css";
 import { ThemeProvider } from "styled-components";
 import { theme } from "@app/styles/themes";
 import { GlobalStyle } from "@app/styles/global";
-import { appWithTranslation } from "next-i18next";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,5 +13,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(MyApp);
-
+export default MyApp;

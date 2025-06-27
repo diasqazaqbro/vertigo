@@ -4,23 +4,19 @@ import SvgWhatsapp from "@shared/icons/SvgWhatsapp";
 import { useClientSize, useToggle } from "@shared/lib/hooks";
 import { Button, IconButton } from "@shared/ui";
 import { ContactsModal } from "@widgets/ContactsModal";
+import { Url } from "next/dist/shared/lib/router/router";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
-import { Trans, useTranslation } from "next-i18next";
 import styled from "styled-components";
 
 const Welcome = () => {
   const { getIsBreakpoint } = useClientSize();
   const isWidthMd = getIsBreakpoint("md");
-  const { t } = useTranslation("common");
 
   const router = useRouter();
 
   const { toggle: toggleModal, isOpened: isOpenedModal } = useToggle();
-
-  const { i18n } = useTranslation();
-  const isArabic = i18n.language === "ae";
 
   return (
     <Root id="welcome">
@@ -31,13 +27,7 @@ const Welcome = () => {
           <Bubbles>
             <StyledImage
               src={
-                isArabic
-                  ? isWidthMd
-                    ? "/assets/bubbleMobile-ae.png"
-                    : "/assets/bubble1-ae.png"
-                  : isWidthMd
-                  ? "/assets/bubbleMobile.png"
-                  : "/assets/bubble1.png"
+                isWidthMd ? "/assets/bubbleMobile.png" : "/assets/bubble1.png"
               }
               alt="Bubbles"
               layout="fill"
@@ -49,10 +39,7 @@ const Welcome = () => {
         <Wrapper className="container">
           <BottomContainer>
             <Buttons>
-              <Button
-                onClick={() => router.push(contactLink.whatsApp)}
-                text={t("welcome_discuss")}
-              />
+              <Button onClick={toggleModal} text="ОБСУДИТЬ ПРОЕКТ" />
               <IconButton
                 onClick={() => router.push(contactLink.tg)}
                 IconComponent={SvgTg}
@@ -63,10 +50,8 @@ const Welcome = () => {
               />
             </Buttons>
             <Description>
-              <Trans
-                i18nKey="welcome_description"
-                components={{ br: <br /> }}
-              />
+              Создаём и запускаем продукты для бизнеса: от сайтов <br /> и
+              онлайн-сервисов до мобильных приложений
             </Description>
           </BottomContainer>
         </Wrapper>

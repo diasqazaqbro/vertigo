@@ -20,7 +20,7 @@ const HomePage = () => {
         <Projects />
         <Service />
         {/* <Stages /> */}
-        {/* <Contacts /> */}
+        <Contacts />
       </div>
     </Layout>
   );

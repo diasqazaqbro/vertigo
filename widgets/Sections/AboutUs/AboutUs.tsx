@@ -1,24 +1,23 @@
 import React from "react";
-import { Trans, useTranslation } from "next-i18next";
 import styled from "styled-components";
 
 const AboutUs = () => {
-  const { t } = useTranslation("common");
-
   return (
     <div id="about-us" className="container">
       <Root>
         <div>
-          <Category>{t("about_us_category")}</Category>
-          <Title>{t("about_us_title")}</Title>
+          <Category>[ О НАС ]</Category>
+          <Title>
+            МЫ БЕРЕМ ОГРАНИЧЕННОЕ КОЛИЧЕСТВО ПРОЕКТОВ, ЧТОБЫ ОБЕСПЕЧИВАТЬ
+            МАКСИМАЛЬНЫЙ КОМФОРТ СОТРУДНИЧЕСТВА — КАК БУДТО МЫ ЧАСТЬ ВАШЕЙ
+            КОМАНДЫ.
+          </Title>
           <Container>
             <Subtitle>
-              <Trans
-                i18nKey="about_us_subtitle"
-                components={{
-                  highlight: <Highlight />,
-                }}
-              />
+              КАЖДОЕ НАШЕ РЕШЕНИЕ ОБОСНОВАНО ДЕЛАЕМ{" "}
+              <Highlight>УВЕРЕННО.</Highlight> ДЕЙСТВУЕМ{" "}
+              <Highlight>СМЕЛО.</Highlight> СОЗДАЕМ{" "}
+              <Highlight>ЛОГИЧНО.</Highlight>
             </Subtitle>
           </Container>
         </div>
